@@ -216,6 +216,37 @@
       color: #000000;
     }
 
+    /* Social Links Section */
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--card-bg);
+      color: var(--text);
+      padding: 0.75rem 1.25rem;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      transition: all 0.2s ease;
+      border-radius: 2px;
+    }
+
+    .social-btn:hover {
+      border-color: var(--highlight);
+      color: var(--highlight);
+      background: #141418;
+    }
+
     /* Shows List */
     .shows-list {
       width: 100%;
@@ -283,7 +314,7 @@
         <a href="#music"><span data-lang="en">Music</span><span data-lang="fo">Tónleikur</span></a>
         <a href="#shows"><span data-lang="en">Shows</span><span data-lang="fo">Konsertir</span></a>
         <a href="#manifesto"><span data-lang="en">Manifesto</span><span data-lang="fo">Manifest</span></a>
-        <a href="#contact"><span data-lang="en">Contact</span><span data-lang="fo">Samband</span></a>
+        <a href="#connect"><span data-lang="en">Connect</span><span data-lang="fo">Leinkjur</span></a>
       </nav>
       <div class="lang-switcher">
         <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
@@ -308,9 +339,9 @@
         </div>
         <div class="release-info">
           <!-- English Text -->
-          <p data-lang="en">Debut album by Svartsalt. 100% raw Atlantic extreme metal recorded 100% DIY.</p>
+          <p data-lang="en">Debut album by Svartsalt. 100% raw Atlantic extreme metal recorded purely DIY.</p>
           <!-- Faroese Text -->
-          <p data-lang="fo">Debutplátan hjá Svartsalt. 100% rátt atlantiskt ekstremt málm upptikið 100% GTS (Ger Tað Sjálvur).</p>
+          <p data-lang="fo">Debutplátan hjá Svartsalt. 100% rátt atlantiskt ekstrem málm upptikið heilt GTS (Ger Tað Sjálvur).</p>
 
           <iframe style="border: 0; width: 100%; height: 120px; border-radius: 2px; margin-top: 1rem;" src="https://bandcamp.com/EmbeddedPlayer/album=upp-ur-dypinum/size=large/bgcol=050506/linkcol=ffffff/tracklist=false/artwork=none/transparent=true/" seamless></iframe>
 
@@ -352,22 +383,29 @@
         </p>
         <!-- Faroese Text -->
         <p data-lang="fo">
-          Svartsalt sameinir myrka deyðsmálms agressjón, thrash-riff og tungar post-metal strukturar í einari soniskari konfrontatión við eina myrka tíð.
+          Svartsalt sameinir myrka deyðs málms aggressión, thrash-riffs og tungar post-metal strukturar í einari soniskari konfrontatión við eina myrka tíð.
           <br><br>
-          Við tekstum bert á føroyskum, siktar tónleikurin beint mótvegis politiskari korruptión, religiøsari fundamentalismu, fasistiskum tendensum og umhvørvis-oyðilegging — sum ein óvíkjandi rødd úr dýpinum.
+          Við føroyskum tekstum, siktar tónleikurin beinleiðis mótvegis politiskari korruptión, religiøsari fundamentalismu, fasistiskum tendensum og umhvørvis-oyðilegging — sum ein óvíkjandi rødd úr dýpinum.
         </p>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+    <!-- Connect / Socials & Contact Section -->
+    <section id="connect">
       <h2>
-        <span data-lang="en">Booking & Inquiries</span>
-        <span data-lang="fo">Booking & Samband</span>
+        <span data-lang="en">Connect & Contact</span>
+        <span data-lang="fo">Leinkjur & Samband</span>
       </h2>
-      <p style="margin-bottom: 1.5rem; color: var(--text-muted);" data-lang="en">Direct inquiries, press, and festival bookings:</p>
-      <p style="margin-bottom: 1.5rem; color: var(--text-muted);" data-lang="fo">Boð, pressusamband og bóking:</p>
-      <a href="mailto:svartsaltband@gmail.com" class="btn">svartsaltband@gmail.com</a>
+      <p style="margin-bottom: 1.5rem; color: var(--text-muted);" data-lang="en">Follow Svartsalt across official channels & direct booking:</p>
+      <p style="margin-bottom: 1.5rem; color: var(--text-muted);" data-lang="fo">Fylg Svartsalt á almennu pallunum og beinleiðis bóking:</p>
+      
+      <div class="social-links">
+        <a href="https://www.facebook.com/svartsalt" class="social-btn" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/svartsalt.band" class="social-btn" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/@Svartsalt-band" class="social-btn" target="_blank">YouTube</a>
+        <a href="https://share.google/47DKVBEylBjsUbk3s" class="social-btn" target="_blank">Bandcamp</a>
+        <a href="mailto:svartsaltband@gmail.com" class="social-btn" style="border-color: var(--highlight);">svartsaltband@gmail.com</a>
+      </div>
     </section>
   </main>
 
