@@ -1,188 +1,301 @@
 <!DOCTYPE html>
-<html lang="fo">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SVARTSALT | Official Site</title>
+  
+  <!-- Modern & Dark Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #070708;
-      --card-bg: #0f0f12;
-      --text: #d4d4d8;
-      --accent: #8e8e93;
+      --bg: #050506;
+      --card-bg: #0c0c0e;
+      --text: #c4c4c8;
+      --text-muted: #71717a;
       --highlight: #ffffff;
-      --border: #1f1f24;
+      --border: #18181b;
+      --accent-line: #27272a;
     }
-    * { box-sizing: border-box; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       background-color: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+      -webkit-font-smoothing: antialiased;
     }
-    
-    /* Sticky Top Navigation like Gojira */
+
+    /* Navigation Header */
     header.nav-header {
       position: sticky;
       top: 0;
-      background: rgba(7, 7, 8, 0.9);
-      backdrop-filter: blur(8px);
+      background: rgba(5, 5, 6, 0.85);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       z-index: 100;
-      padding: 1rem;
+      padding: 1.2rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
     }
+
     .nav-logo {
-      height: 35px;
+      height: 28px;
       width: auto;
+      opacity: 0.9;
     }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
     nav {
       display: flex;
       gap: 1.5rem;
     }
+
     nav a {
-      color: var(--text);
+      color: var(--text-muted);
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      transition: color 0.2s;
+      letter-spacing: 0.15em;
+      transition: color 0.2s ease;
     }
+
     nav a:hover { color: var(--highlight); }
 
-    /* Hero Section */
+    /* Language Switcher Button */
+    .lang-switcher {
+      display: flex;
+      gap: 0.4rem;
+      background: var(--card-bg);
+      padding: 0.25rem 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.2rem 0.4rem;
+      letter-spacing: 0.1em;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn.active {
+      color: var(--highlight);
+      background: var(--accent-line);
+    }
+
+    /* Hero Banner */
     .hero {
       text-align: center;
-      padding: 4rem 1rem 3rem;
+      padding: 6rem 1rem 5rem;
       border-bottom: 1px solid var(--border);
+      background: radial-gradient(circle at center, #111115 0%, #050506 70%);
     }
+
     .hero-logo {
-      max-width: 480px;
-      width: 90%;
+      max-width: 440px;
+      width: 85%;
       height: auto;
-      margin-bottom: 1rem;
-    }
-    .subtitle {
-      color: var(--accent);
-      font-size: 0.9rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    /* Container */
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3rem 1rem;
-    }
-    section {
-      margin-bottom: 5rem;
-    }
-    h2 {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.75rem;
-      color: var(--highlight);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-size: 1.3rem;
       margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 20px rgba(0,0,0,0.8));
     }
 
-    /* Music Grid */
+    .subtitle {
+      color: var(--text-muted);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    /* Main Content Layout */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    section { margin-bottom: 6rem; }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      color: var(--highlight);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--accent-line);
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 60px;
+      height: 1px;
+      background-color: var(--highlight);
+    }
+
+    /* Release Grid */
     .release-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
+      grid-template-columns: 320px 1fr;
+      gap: 3rem;
+      align-items: start;
     }
-    @media (max-width: 768px) {
-      .release-grid { grid-template-columns: 1fr; }
+
+    @media (max-width: 800px) {
+      .release-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      header.nav-header { flex-direction: column; gap: 1rem; }
     }
-    .cover-art {
+
+    .album-cover {
       width: 100%;
-      border-radius: 4px;
+      border-radius: 2px;
       border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
+
+    .release-info p {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
     .btn-group {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 1.5rem;
+      margin-top: 2rem;
     }
+
     .btn {
-      background: var(--card-bg);
+      display: inline-block;
+      background: transparent;
       color: var(--highlight);
-      padding: 0.8rem 1.4rem;
+      padding: 0.75rem 1.5rem;
       border: 1px solid var(--border);
       text-decoration: none;
       font-weight: 600;
-      border-radius: 4px;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: all 0.2s;
-    }
-    .btn:hover {
-      border-color: var(--highlight);
-      background: #18181c;
+      letter-spacing: 0.15em;
+      transition: all 0.25s ease;
+      border-radius: 2px;
     }
 
-    /* Shows Table */
+    .btn:hover {
+      border-color: var(--highlight);
+      background: var(--highlight);
+      color: #000000;
+    }
+
+    /* Shows List */
     .shows-list {
       width: 100%;
       border-collapse: collapse;
     }
-    .shows-list td {
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.95rem;
-    }
-    .show-date { color: var(--accent); font-weight: 600; width: 25%; }
-    .show-venue { font-weight: 600; color: var(--highlight); }
-    .show-location { color: var(--accent); }
 
-    /* Manifesto Box */
+    .shows-list tr { border-bottom: 1px solid var(--border); }
+
+    .shows-list td {
+      padding: 1.25rem 0;
+      font-size: 0.9rem;
+    }
+
+    .show-date {
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      width: 25%;
+    }
+
+    .show-venue {
+      font-weight: 600;
+      color: var(--highlight);
+    }
+
+    .show-location {
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    /* Manifesto Styling */
     .manifesto-box {
       background: var(--card-bg);
-      padding: 2rem;
-      border-left: 3px solid var(--highlight);
+      padding: 2.5rem;
+      border: 1px solid var(--border);
       font-size: 0.95rem;
-      line-height: 1.8;
+      line-height: 1.9;
+      color: #d1d1d6;
+      border-left: 2px solid var(--highlight);
     }
 
+    /* Footer */
     footer {
       text-align: center;
-      padding: 3rem 1rem;
+      padding: 4rem 1rem;
       border-top: 1px solid var(--border);
-      color: var(--accent);
-      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
     }
+
+    /* Language hiding helper */
+    [data-lang="fo"] { display: none; }
   </style>
 </head>
 <body>
 
-  <!-- Top Sticky Bar -->
+  <!-- Sticky Header -->
   <header class="nav-header">
     <img src="svartsalt_hvitt_uttan_bakgrund.png" alt="SVARTSALT" class="nav-logo">
-    <nav>
-      <a href="#music">Music</a>
-      <a href="#shows">Shows</a>
-      <a href="#manifesto">Manifesto</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="nav-right">
+      <nav>
+        <a href="#music"><span data-lang="en">Music</span><span data-lang="fo">Tónleikur</span></a>
+        <a href="#shows"><span data-lang="en">Shows</span><span data-lang="fo">Konsertir</span></a>
+        <a href="#manifesto"><span data-lang="en">Manifesto</span><span data-lang="fo">Manifesto</span></a>
+        <a href="#contact"><span data-lang="en">Contact</span><span data-lang="fo">Kunskaft</span></a>
+      </nav>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="setLanguage('fo')">FO</button>
+      </div>
+    </div>
   </header>
 
   <!-- Hero Banner -->
   <div class="hero">
     <img src="svartsalt_hvitt_uttan_bakgrund.png" alt="SVARTSALT" class="hero-logo">
-    <p class="subtitle">100% DIY Atlantic Blackened Death / Thrash Metal</p>
+    <p class="subtitle">100% DIY Atlantic Blackened Death / Thrash</p>
   </div>
 
   <main>
@@ -191,13 +304,21 @@
       <h2>Upp Úr Dýpinum (2026)</h2>
       <div class="release-grid">
         <div>
-          <!-- Embed Bandcamp Player -->
-          <iframe style="border: 0; width: 100%; height: 400px; border-radius: 4px;" src="https://bandcamp.com/EmbeddedPlayer/album=upp-ur-dypinum/size=large/bgcol=070708/linkcol=ffffff/transparent=true/" seamless></iframe>
+          <img src="Upp-Úr-Dýpinum.jpg" alt="Upp Úr Dýpinum Artwork" class="album-cover" onerror="this.style.display='none'">
         </div>
-        <div>
-          <p>Debutplátan hjá Svartsalt. 100% hrátt Atlantic extreme metal upptikið uttan autotune, uttan grid-redigering og uttan studioviðgerð.</p>
+        <div class="release-info">
+          <!-- English Text -->
+          <p data-lang="en">Debut album by Svartsalt. 100% raw Atlantic extreme metal recorded with zero autotune, no grid editing, and no artificial studio polish.</p>
+          <!-- Faroese Text -->
+          <p data-lang="fo">Debutplátan hjá Svartsalt. 100% hrátt Atlantic extreme metal upptikið uttan autotune, uttan grid-redigering og uttan studioviðgerð.</p>
+
+          <iframe style="border: 0; width: 100%; height: 120px; border-radius: 2px; margin-top: 1rem;" src="https://bandcamp.com/EmbeddedPlayer/album=upp-ur-dypinum/size=large/bgcol=050506/linkcol=ffffff/tracklist=false/artwork=none/transparent=true/" seamless></iframe>
+
           <div class="btn-group">
-            <a href="https://share.google/jJwmyxAnPMnz2SxTq" class="btn" target="_blank">Panta 12" Vinyl (Tutl)</a>
+            <a href="https://share.google/jJwmyxAnPMnz2SxTq" class="btn" target="_blank">
+              <span data-lang="en">Order 12" Vinyl (Tutl)</span>
+              <span data-lang="fo">Panta 12" Vinyl (Tutl)</span>
+            </a>
             <a href="https://share.google/47DKVBEylBjsUbk3s" class="btn" target="_blank">Bandcamp Digital</a>
           </div>
         </div>
@@ -206,12 +327,15 @@
 
     <!-- Shows Section -->
     <section id="shows">
-      <h2>Komandi Konsertir</h2>
+      <h2>
+        <span data-lang="en">Live Rituals</span>
+        <span data-lang="fo">Komandi Konsertir</span>
+      </h2>
       <table class="shows-list">
         <tr>
-          <td class="show-date">26. DES 2026</td>
+          <td class="show-date">26. DEC 2026</td>
           <td class="show-venue">OY Bryggjarí</td>
-          <td class="show-location">Tórshavn, Føroyar</td>
+          <td class="show-location">Tórshavn, Faroe Islands</td>
         </tr>
       </table>
     </section>
@@ -220,23 +344,57 @@
     <section id="manifesto">
       <h2>Manifesto</h2>
       <div class="manifesto-box">
-        Svartsalt sameinir myrkan death metal agressjón, thrash-riffs og tung post-metal strubturar í einum soniskum samsteypi við eina myrka tíðarfestu. 
-
-        Við tekstum bert á føroyskum, siktar tónleikurin beint mótvegis politiskari korruptsjón, religiøsum fundamentalismu, faskistiskum tendensum og umhvørvisoyðilegging — sum ein óvíkjandi rødd úr dýpinum.
+        <!-- English Text -->
+        <p data-lang="en">
+          Svartsalt fuses blackened death metal aggression, thrash riffs, and heavy post-metal structures into a sonic confrontation with a dark era.
+          <br><br>
+          Writing exclusively in Faroese, our lyrics target political corruption, religious fundamentalism, fascist tendencies, and environmental destruction — standing as an unyielding voice rising from the deep.
+        </p>
+        <!-- Faroese Text -->
+        <p data-lang="fo">
+          Svartsalt sameinir myrkan death metal agressjón, thrash-riffs og tung post-metal strubturar í einum soniskum samsteypi við eina myrka tíðarfestu.
+          <br><br>
+          Við tekstum bert á føroyskum, siktar tónleikurin beint mótvegis politiskari korruptsjón, religiøsum fundamentalismu, faskistiskum tendensum og umhvørvisoyðilegging — sum ein óvíkjandi rødd úr dýpinum.
+        </p>
       </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
-      <h2>Booking & Inquiries</h2>
-      <p>Direct inquiries, press, and festival bookings:</p>
+      <h2>
+        <span data-lang="en">Booking & Inquiries</span>
+        <span data-lang="fo">Booking & Samband</span>
+      </h2>
+      <p style="margin-bottom: 1.5rem; color: var(--text-muted);" data-lang="en">Direct inquiries, press, and festival bookings:</p>
+      <p style="margin-bottom: 1.5rem; color: var(--text-muted);" data-lang="fo">Boð, pressusamband og festivalkonsertir:</p>
       <a href="mailto:svartsaltband@gmail.com" class="btn">svartsaltband@gmail.com</a>
     </section>
   </main>
 
   <footer>
-    &copy; 2026 SVARTSALT. Built DIY.
+    &copy; 2026 SVARTSALT. All rights reserved.
   </footer>
+
+  <!-- Script to Switch Languages Seamlessly -->
+  <script>
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        if (el.getAttribute('data-lang') === lang) {
+          el.style.display = 'inline-block';
+          if (el.tagName === 'P' || el.tagName === 'DIV') {
+            el.style.display = 'block';
+          }
+        } else {
+          el.style.display = 'none';
+        }
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
